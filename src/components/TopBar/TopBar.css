@@ -1,0 +1,7 @@
+.app {
+    max-width: 640px;
+    height: 100vh;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 1px 0 8px rgba(0,0,0,.2);
+}
