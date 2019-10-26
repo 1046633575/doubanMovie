@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
 import { TabBar } from 'antd-mobile'
 import {Switch, Route, Redirect} from 'react-router-dom'
-import Main from '../../view/main'
-import Top250 from '../../view/top250'
-import Me from '../../view/me'
+import Main from '../../view/main/main'
+import Top250 from '../../view/top250/top250'
+import Me from '../../view/me/me'
 
 import './TopBar.css'
 
@@ -19,7 +19,7 @@ export default class TopBar extends Component {
 
     render () {
         return (
-            <div className="app">
+            <div className="container">
                 <div style={{height: '100%', maxWidth: '640px'}}>
                     <TabBar
                         unselectedTintColor="#949494"

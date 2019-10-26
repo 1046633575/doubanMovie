@@ -1,7 +1,8 @@
-.app {
+.container {
     max-width: 640px;
     height: 100vh;
     margin: auto;
     background-color: #fff;
     box-shadow: 1px 0 8px rgba(0,0,0,.2);
+    padding: 5px 5px 0 5px;
 }
