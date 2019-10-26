@@ -9,79 +9,95 @@ import './TopBar.css'
 
 export default class TopBar extends Component {
 
+    state = {
+        selected: 'Main'
+    }
+
+    handleChange = (str) => {
+        this.setState({selected : str})
+    }
+
     render () {
         return (
             <div className="app">
                 <div style={{height: '100%', maxWidth: '640px'}}>
-
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#33A3F4"
                         barTintColor="white"
                     >
                         <TabBar.Item
-                            title="首页"
-                            key="Main"
                             icon={<div style={{
                                 width: '22px',
                                 height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+                                background: 'url(http://www.bgwm.fun/picture/images/dianying.png) center center /  21px 21px no-repeat' }}
                             />
                             }
                             selectedIcon={<div style={{
                                 width: '22px',
                                 height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+                                background: 'url(http://www.bgwm.fun/picture/images/dianying_active.png) center center /  21px 21px no-repeat' }}
                             />
                             }
-                            onPress={() => this.props.history.push('/main')}
+                            title="首页"
+                            key="Main"
+                            selected={this.state.selected === 'Main'}
+                            onPress={() => {
+                                this.handleChange('Main')
+                                this.props.history.push('/main')
+                            }}
                         >
-                            <Switch>
-                                <Route path='/main' component={Main} />
-                                <Route path='/top250' component={Top250} />
-                                <Route path='/me' component={Me} />
-                                <Redirect to='/main' /> // 重定向
-                            </Switch>
+                            <Route path='/main' component={Main} />
                         </TabBar.Item>
                         <TabBar.Item
                             icon={
                                 <div style={{
                                     width: '22px',
                                     height: '22px',
-                                    background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
+                                    background: 'url(http://www.bgwm.fun/picture/images/paihang.png) center center /  21px 21px no-repeat' }}
                                 />
                             }
                             selectedIcon={
                                 <div style={{
                                     width: '22px',
                                     height: '22px',
-                                    background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
+                                    background: 'url(http://www.bgwm.fun/picture/images/paihang_active.png) center center /  21px 21px no-repeat' }}
                                 />
                             }
                             title="TOP250"
                             key="top250"
-                            onPress={() => this.props.history.push('/top250')}
+                            selected={this.state.selected === 'Top250'}
+                            onPress={() => {
+                                this.handleChange('Top250')
+                                this.props.history.push('/top250')
+                            }}
                         >
+                            <Route path='/top250' component={Top250} />
                         </TabBar.Item>
                         <TabBar.Item
                             icon={
                                 <div style={{
                                     width: '22px',
                                     height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
+                                    background: 'url(http://www.bgwm.fun/picture/images/wode.png) center center /  21px 21px no-repeat' }}
                                 />
                             }
                             selectedIcon={
                                 <div style={{
                                     width: '22px',
                                     height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
+                                    background: 'url(http://www.bgwm.fun/picture/images/wode_active.png) center center /  21px 21px no-repeat' }}
                                 />
                             }
                             title="我的"
                             key="Me"
-                            onPress={() => this.props.history.push('/me')}
+                            selected={this.state.selected === 'Me'}
+                            onPress={() => {
+                                this.handleChange('Me')
+                                this.props.history.push('/me')
+                            }}
                         >
+                            <Route path='/me' component={Me} />
                         </TabBar.Item>
                     </TabBar>
                 </div>

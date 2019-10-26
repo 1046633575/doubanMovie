@@ -7,7 +7,7 @@ export default class App extends Component {
         return (
             <div>
                 <Route path='/' component={TopBar} />
-                <Redirect to='/' /> // 重定向
+                <Redirect to='/main' />
             </div>
         )
     }
