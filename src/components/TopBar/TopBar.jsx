@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { TabBar } from 'antd-mobile'
+import { TabBar, Icon } from 'antd-mobile'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import Main from '../../view/main/main'
 import Top250 from '../../view/top250/top250'
@@ -10,7 +10,14 @@ import './TopBar.css'
 export default class TopBar extends Component {
 
     state = {
-        selected: 'Main'
+        selected: 'Main',
+        loading: true
+    }
+
+    componentDidMount() {
+        setTimeout(() =>{
+            this.setState({loading: false})
+        },3000)
     }
 
     handleChange = (str) => {
@@ -19,8 +26,13 @@ export default class TopBar extends Component {
 
     render () {
         return (
+
             <div className="container">
-                <div style={{height: '100%', maxWidth: '640px'}}>
+                {
+                    this.state.loading ?
+                        <div className='loading'><Icon type="loading" size='lg'/><p>加载中...</p></div> : ''
+                }
+                        <div style={{height: '100%', maxWidth: '640px'}}>
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#33A3F4"

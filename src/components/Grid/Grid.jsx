@@ -19,16 +19,6 @@ export default class MyGrid extends Component {
     }
 
     render () {
-        // if (this.state.data) {
-        //     const data = this.state.data.map((item, i) => ({
-        //         icon: this.props.imgFlag ? item.images.small : item.subject.images.small,
-        //         text: this.props.imgFlag ? item.title : item.subject.title,
-        //     }))
-        // } else {
-        //     const data = new Array(9).map(item => {
-        //         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png'
-        //     })
-        // }
 
         return (
             <div>
