@@ -31,7 +31,9 @@ export default class MovieList extends Component {
         return (
             <div className='list_container'>
                 <NavBar title={this.state.data[this.props.match.params.id - 1].name}/>
-                <MyMovieList arr={this.state.arr} num={this.props.match.params.id}/>
+                <div className='list_content'>
+                    <MyMovieList arr={this.state.arr} num={this.props.match.params.id}/>
+                </div>
             </div>
         )
     }
