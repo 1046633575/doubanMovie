@@ -20,7 +20,7 @@ export default class MyCard extends Component {
                     <Card.Body>
                         {/*条件渲染，如果传入的 gridFlag 为 true 渲染 Grid 组件，否则渲染 List 组件*/}
                         {
-                            this.props.gridFlag ? <MyGrid gridArr={this.props.gridArr} imgFlag={this.props.imgFlag}/> : <MyList list={this.props.list}/>
+                            this.props.gridFlag ? <MyGrid history={this.props.history} gridArr={this.props.gridArr} imgFlag={this.props.imgFlag}/> : <MyList history={this.props.history} list={this.props.list}/>
                         }
                     </Card.Body>
                 </Card>

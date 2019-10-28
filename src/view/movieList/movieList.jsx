@@ -1,9 +1,8 @@
 import React,{Component} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import MyMovieList from '../../components/MovieList/MovieList'
-
-import './movieList.css'
 import {getShowNow, getNewsMovie, getMouthList, getShownSoon} from "../../axios"
+import './movieList.css'
 
 export default class MovieList extends Component {
 

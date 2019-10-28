@@ -19,7 +19,8 @@ export default class MyList extends Component {
                 <div className='list_content'>
                     {
                         this.state.data.map((item, index) =>
-                            <div className='list_item' key={index}>
+                            // onClick 点击跳转至电影详情 传递 id
+                            <div className='list_item' onClick={() => {this.props.history.push('/movieDetail/' + item.id)}}  key={index}>
                                 <img className='img' src={item.images.large} alt=""/>
                                 <p>{item.title}</p>
                             </div>

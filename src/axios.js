@@ -26,3 +26,8 @@ export const getTop250 = () => {
     return axios.get(ADDRESS + '/v2/movie/top250?count=250')
 }
 
+// 影片详情
+export const getMovieDetail = (id) => {
+    return axios.get(ADDRESS + '/v2/movie/subject/' + id)
+}
+

@@ -1,0 +1,21 @@
+.detail_container{
+    width: 100%;
+    max-width: 640px;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    padding-top: 45px;
+}
+.detail_container .detail_bg{
+    width: 100%;
+    height: 100%;
+    filter: blur(150px);
+    -webkit-filter: blur(150px);
+}

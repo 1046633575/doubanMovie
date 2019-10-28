@@ -14,6 +14,7 @@ export default class MyGrid extends Component {
         data = data.map((item, i) => ({
             icon: this.props.imgFlag ? item.images.small : item.subject.images.small,
             text: this.props.imgFlag ? item.title : item.subject.title,
+            id: this.props.imgFlag ? item.id : item.subject.id
         }))
         this.setState({data})
     }
@@ -22,7 +23,7 @@ export default class MyGrid extends Component {
 
         return (
             <div>
-                <Grid data={this.state.data} activeStyle={false} columnNum={3}/>
+                <Grid data={this.state.data} activeStyle={false} onClick={el => this.props.history.push('/movieDetail/' + el.id)} columnNum={3}/>
             </div>
         )
     }

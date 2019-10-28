@@ -50,10 +50,10 @@ export default class Main extends React.Component {
             <div>
                 <Swiper swipers={swipers}></Swiper>
                 {/*传递id为了在查看详情时区分开来，*/}
-                <MyCard title='正在热映' id={1} gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>
-                <MyCard title='即将上映' id={2} list={this.state.list}/>
-                <MyCard title='口碑榜' id={3} gridArr={this.state.mouthList} gridFlag={true} imgFlag={false}/>
-                <MyCard title='新片榜' id={4} list={this.state.newsList}/>
+                <MyCard title='正在热映' id={1} history={this.props.history} gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>
+                <MyCard title='即将上映' id={2} history={this.props.history} list={this.state.list}/>
+                <MyCard title='口碑榜' id={3} history={this.props.history} gridArr={this.state.mouthList} gridFlag={true} imgFlag={false}/>
+                <MyCard title='新片榜' id={4} history={this.props.history} list={this.state.newsList}/>
             </div>
         )
     }
