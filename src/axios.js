@@ -21,3 +21,8 @@ export const getNewsMovie = () => {
     return axios.get(ADDRESS + '/v2/movie/new_movies')
 }
 
+// Top250
+export const getTop250 = () => {
+    return axios.get(ADDRESS + '/v2/movie/top250?count=250')
+}
+
