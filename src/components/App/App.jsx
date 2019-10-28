@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import TopBar from '../TopBar/TopBar'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import MovieList from '../../view/movieList/movieList'
 
 import 'antd-mobile/dist/antd-mobile.css'

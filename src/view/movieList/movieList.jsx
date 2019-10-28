@@ -1,21 +1,37 @@
 import React,{Component} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
+import MyMovieList from '../../components/MovieList/MovieList'
 
 import './movieList.css'
+import {getShowNow, getNewsMovie, getMouthList, getShownSoon} from "../../axios"
 
 export default class MovieList extends Component {
 
+    state = {
+        data : [
+            {name: '正在热映', func: getShowNow},
+            {name: '即将上映', func: getShownSoon},
+            {name: '口碑榜', func: getMouthList},
+            {name: '新片榜', func: getNewsMovie}
+        ],
+        arr: []
+    }
+
+    componentDidMount() {
+        const id = this.props.match.params.id
+        this.state.data[id - 1].func().then(res => {
+            console.log(res)
+            if(res.status === 200) {
+                this.setState({arr: res.data.subjects})
+            }
+        })
+    }
+
     render () {
-        const data = [
-            {name: '正在热映', path: '/v2/movie/in_theaters'},
-            {name: '即将上映', path: '/v2/movie/coming_soon'},
-            {name: '口碑榜', path: '/v2/movie/weekly'},
-            {name: '新片榜', path: '/v2/movie/new_movies'}
-        ]
-        console.log(this.props)
         return (
             <div className='list_container'>
-                <NavBar title={data[this.props.match.params.id - 1].name}/>
+                <NavBar title={this.state.data[this.props.match.params.id - 1].name}/>
+                <MyMovieList arr={this.state.arr} num={this.props.match.params.id}/>
             </div>
         )
     }
