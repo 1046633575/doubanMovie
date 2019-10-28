@@ -1,6 +1,6 @@
 import React from 'react'
 import Swiper from '../../components/Swiper/Swiper'
-import MyCard from "../../components/Card/Card";
+import MyCard from "../../components/Card/Card"
 
 import {getShowNow, getShownSoon, getMouthList, getNewsMovie} from '../../axios'
 
@@ -33,14 +33,12 @@ export default class Main extends React.Component {
         // 口碑榜
         getMouthList().then(res => {
             if(res.status === 200) {
-                console.log(res)
                 this.setState({mouthList: res.data.subjects})
             }
         })
         // 新片榜
         getNewsMovie().then(res => {
             if(res.status === 200) {
-                console.log(res)
                 this.setState({newsList: res.data.subjects})
             }
         })
@@ -51,10 +49,11 @@ export default class Main extends React.Component {
         return (
             <div>
                 <Swiper swipers={swipers}></Swiper>
-                <MyCard title='正在热映' gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>
-                <MyCard title='即将上映' list={this.state.list}/>
-                <MyCard title='口碑榜' gridArr={this.state.mouthList} gridFlag={true} imgFlag={false}/>
-                <MyCard title='新片榜' list={this.state.newsList}/>
+                {/*传递id为了在查看详情时区分开来，*/}
+                <MyCard title='正在热映' id={1} gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>
+                <MyCard title='即将上映' id={2} list={this.state.list}/>
+                <MyCard title='口碑榜' id={3} gridArr={this.state.mouthList} gridFlag={true} imgFlag={false}/>
+                <MyCard title='新片榜' id={4} list={this.state.newsList}/>
             </div>
         )
     }

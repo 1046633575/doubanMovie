@@ -11,7 +11,7 @@ export default class TopBar extends Component {
 
     state = {
         selected: 'Main',
-        loading: true
+        loading: false //加载动画
     }
 
     componentDidMount() {
