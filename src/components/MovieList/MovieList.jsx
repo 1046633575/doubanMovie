@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import Score from '../Score/Score'
 
 import './MovieList.css'
 
@@ -61,7 +62,7 @@ export default class MovieList extends Component {
                                 <p className='detail'>{this.formatDetail(item)}</p>
                             </div>
                             <div className="right">
-                                {this.props.num == 3 ? item.subject.rating.average : item.rating.average}
+                                <Score star={this.props.num == 3 ? item.subject.rating.average : item.rating.average}/>
                             </div>
                         </div>
                     )
