@@ -19,7 +19,6 @@ export default class MovieList extends Component {
     componentDidMount() {
         const id = this.props.match.params.id
         this.state.data[id - 1].func().then(res => {
-            console.log(res)
             if(res.status === 200) {
                 this.setState({arr: res.data.subjects})
             }
