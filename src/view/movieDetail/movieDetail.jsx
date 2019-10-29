@@ -67,7 +67,8 @@ export default class MovieDetail extends Component {
                         </div>
                     </div>
                     <div className="detail_center">
-
+                        <h3>简介</h3>
+                        <p>{data.summary}</p>
                     </div>
                     <div className="detail_bottom"></div>
                 </div>

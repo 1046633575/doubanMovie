@@ -41,12 +41,28 @@
 }
 .detail_content .detail_top .top_right h2{
     margin: 0 0 10px 0;
+    color: #fff;
 }
 .detail_content .num{
-    color: #444;
+    color: #fff;
+    font-weight: bold;
+    text-indent: 1em;
 }
 .detail_content .detail_top .top_right p{
-    color: #333;
     font-size: 12px;
     line-height: 1.5em;
+    color: #ddd;
+}
+.detail_content .detail_center{
+    padding: 0 10px;
+}
+.detail_content .detail_center h3{
+    color: #fff;
+    margin: 0;
+}
+.detail_content .detail_center p{
+    color: #eee;
+    font-size: 12px;
+    line-height: 1.5em;
+    text-indent: 2em;
 }
