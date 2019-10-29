@@ -31,3 +31,8 @@ export const getMovieDetail = (id) => {
     return axios.get(ADDRESS + '/v2/movie/subject/' + id)
 }
 
+// 影片评论
+export const getMovieComment = (id) => {
+    return axios.get(ADDRESS + '/v2/movie/subject/' + id + '/comments')
+}
+

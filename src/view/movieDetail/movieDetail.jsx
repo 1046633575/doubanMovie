@@ -1,13 +1,14 @@
 import React,{Component} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
-import {getMovieDetail} from '../../axios'
+import {getMovieDetail, getMovieComment} from '../../axios'
 import Score from '../../components/Score/Score'
 import './movieDetail.css'
 
 export default class MovieDetail extends Component {
 
     state = {
-        data: {images: {small: ''}, rating: {average: ''}}
+        data: {images: {small: ''}, rating: {average: ''}},
+        comments: []
     }
 
     // 整合电影详细信息并返回
@@ -43,34 +44,69 @@ export default class MovieDetail extends Component {
     componentDidMount() {
         // 从路由地址中取到 id
         const id = this.props.match.params.id
+        // 获取电影详情
         getMovieDetail(id).then(res => {
-            console.log(res.data.rating.average)
             this.setState({data: res.data})
+        })
+        // 获取评论
+        getMovieComment(id).then(res => {
+            if(res.status === 200){
+                this.setState({comments: res.data.comments})
+            }
         })
     }
 
     render () {
-        const {data} = this.state
+        const {data, comments} = this.state
         return (
-            <div className='detail_container' >
-                <img className='detail_bg' src={data.images.small} alt=""/>
-                <div className="detail_content">
-                    <NavBar title={data.title}/>
-                    <div className="detail_top">
-                        <img className='top_left' src={data.images.small}/>
-                        <div className="top_right">
-                            <h2>{data.title}</h2>
-                            {
-                                data.rating.average ? <Score star={data.rating.average}/> : ''
-                            }
-                            <p>{this.formatDetail()}</p>
+            <div>
+                <NavBar title={data.title}/>
+                <div className='detail_container' >
+
+                    <img className='detail_bg' src={data.images.small} alt=""/>
+                    <div className="detail_content">
+
+                        <div className="detail_top">
+                            <img className='top_left' src={data.images.small}/>
+                            <div className="top_right">
+                                <h2>{data.title}</h2>
+                                {
+                                    data.rating.average ? <Score star={data.rating.average}/> : ''
+                                }
+                                <p>{this.formatDetail()}</p>
+                            </div>
+                        </div>
+                        <div className="detail_center">
+                            <h3>简介</h3>
+                            <div className="center_content">
+                                <p>{data.summary}</p>
+                            </div>
+                        </div>
+                        <div className="detail_bottom">
+                            <div className="bottom_bg"></div>
+                            <div className="bottom_content">
+                                <h3>短评</h3>
+                                <div className="bottom_items">
+                                    {
+                                        comments.map((item,index) => (
+                                            <div key={index} className="bottom_item">
+                                                <div className="item_top">
+                                                    <img src={item.author.avatar} alt=""/>
+                                                    <div className="message">
+                                                        <p>{item.author.name}</p>
+                                                        <span>{item.created_at}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="item_content">
+                                                    {item.content}
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="detail_center">
-                        <h3>简介</h3>
-                        <p>{data.summary}</p>
-                    </div>
-                    <div className="detail_bottom"></div>
                 </div>
             </div>
         )

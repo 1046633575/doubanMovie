@@ -8,17 +8,17 @@
     box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 .navBar_container .am-navbar-light .am-navbar-title {
-    color: #fff;
+    color: #0d1a26;
     font-size: 16px;
     font-weight: bold;
 }
 .navBar_container .am-navbar-light {
-     background-color: transparent;
+    background-color: #fff;
+    color: #1890ff;
 }
 .navBar_container .am-navbar {
     display: flex;
     align-items: center;
     height: 45px;
-     background-color: transparent;
-    color: #fff;
+    color: #1890ff;
 }
