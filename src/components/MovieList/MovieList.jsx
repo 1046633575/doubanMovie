@@ -52,7 +52,7 @@ export default class MovieList extends Component {
             <div className='movieList'>
                 {
                     this.state.arr.map((item,index) =>
-                        <div className='list_item'>
+                        <div className='list_item' onClick={() => {this.props.history.push('/movieDetail/' + item.id)}}>
                             <div className="num">{index + 1}</div>
                             <div className="left">
                                 <img src={this.props.num == 3 ? item.subject.images.small : item.images.large} alt=""/>

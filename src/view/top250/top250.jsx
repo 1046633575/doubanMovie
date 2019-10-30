@@ -11,7 +11,6 @@ export default class Top extends Component {
     componentWillMount() {
         getTop250().then(res => {
             if(res.status === 200) {
-                console.log(res)
                 this.setState({list: res.data.subjects})
             }
         })
@@ -20,7 +19,7 @@ export default class Top extends Component {
     render() {
         return (
             <div>
-                <MyMovieList arr={this.state.list}/>
+                <MyMovieList history={this.props.history} arr={this.state.list}/>
             </div>
         )
     }
