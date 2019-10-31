@@ -19,7 +19,10 @@ export default class MovieDetail extends Component {
         const movieObj = {
             id: data.id,
             title: data.title,
-            img: data.images.small
+            img: data.images.small,
+            // 评分
+            average: data.rating.average
+
         }
         // 获取到本地存储对象 localStorage
         let arr = JSON.parse(localStorage.getItem('movies'))
@@ -32,14 +35,14 @@ export default class MovieDetail extends Component {
                 // 删除
                 arr.splice(index,1)
                 // Toast 提示
-                Toast.success('取消收藏', 1.5)
+                Toast.success('取消收藏', 1)
                 // 同步 state 熄灭收藏图标
                 this.setState({collectionFlag: false})
             } else {
                 // 添加
                 arr.push(movieObj)
                 // Toast 提示
-                Toast.success('收藏成功', 1.5)
+                Toast.success('收藏成功', 1)
                 // 同步 state 点亮收藏图标
                 this.setState({collectionFlag: true})
             }
