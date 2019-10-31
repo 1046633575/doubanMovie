@@ -1,8 +1,9 @@
 import React from 'react'
 import Swiper from '../../components/Swiper/Swiper'
 import MyCard from "../../components/Card/Card"
-
 import {getShowNow, getShownSoon, getMouthList, getNewsMovie} from '../../axios'
+import {Icon} from "antd-mobile"
+import './main.css'
 
 export default class Main extends React.Component {
 
@@ -14,14 +15,16 @@ export default class Main extends React.Component {
         // 口碑榜
         mouthList: [],
         // 新片榜
-        newsList: []
+        newsList: [],
+        // 加载动画
+        loadingFlag: false
     }
 
     componentWillMount(){
         // 正在热映
         getShowNow().then(res => {
             if(res.status === 200) {
-                this.setState({gridArr: res.data.subjects})
+                this.setState({gridArr: res.data.subjects, loadingFlag: true})
             }
         })
         // 即将上映
@@ -46,8 +49,12 @@ export default class Main extends React.Component {
 
     render() {
         const swipers = ['http://www.bgwm.fun/picture/images/douban_img05.jpg','http://www.bgwm.fun/picture/images/douban_img06.jpg','http://www.bgwm.fun/picture/images/douban_img07.jpg','http://www.bgwm.fun/picture/images/douban_img01.jpg']
+        const {loadingFlag} = this.state
         return (
-            <div>
+            <div className='main'>
+                {
+                    loadingFlag ? '' : <div className="loading_container"><Icon type="loading" size='lg'/><p>加载中...<br/>接口慢，请耐心等待</p></div>
+                }
                 <Swiper swipers={swipers}></Swiper>
                 {/*传递id为了在查看详情时区分开来，*/}
                 <MyCard title='正在热映' id={1} history={this.props.history} gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>

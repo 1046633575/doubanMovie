@@ -31,7 +31,7 @@ export default class me extends Component {
             <div className='me_container'>
                 <h3>我的收藏</h3>
                 {
-                    movies ?  movies.map((item,index) =>
+                    movies.length ?  movies.map((item,index) =>
                         <div className='movieItem' key={index}>
                             <div className="img"><img src={item.img} alt=""/></div>
                             <div className="message">

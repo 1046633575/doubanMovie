@@ -7,10 +7,12 @@
 }
 .me_container .movieItem{
     width: 100%;
+    height: 100px;
     padding: 0 20px;
     margin-top: 20px;
     display: flex;
     background-color: #eee;
+    overflow: hidden;
 }
 .me_container .movieItem .img{
     width: 35%;

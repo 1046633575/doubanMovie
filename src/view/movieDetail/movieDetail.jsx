@@ -35,14 +35,14 @@ export default class MovieDetail extends Component {
                 // 删除
                 arr.splice(index,1)
                 // Toast 提示
-                Toast.success('取消收藏', 1)
+                Toast.success('取消收藏', 1,()=>{},false)
                 // 同步 state 熄灭收藏图标
                 this.setState({collectionFlag: false})
             } else {
                 // 添加
                 arr.push(movieObj)
                 // Toast 提示
-                Toast.success('收藏成功', 1)
+                Toast.success('收藏成功', 1,()=>{},false)
                 // 同步 state 点亮收藏图标
                 this.setState({collectionFlag: true})
             }

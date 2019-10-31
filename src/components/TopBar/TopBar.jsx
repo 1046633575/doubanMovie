@@ -10,8 +10,7 @@ import './TopBar.css'
 export default class TopBar extends Component {
 
     state = {
-        selected: 'Main',
-        loading: false //加载动画
+        selected: 'Main'
     }
 
     componentDidMount() {
@@ -28,11 +27,7 @@ export default class TopBar extends Component {
         return (
 
             <div className="container">
-                {
-                    this.state.loading ?
-                        <div className='loading'><Icon type="loading" size='lg'/><p>加载中...</p></div> : ''
-                }
-                        <div style={{height: '100%', maxWidth: '640px'}}>
+                <div style={{height: '100%', maxWidth: '640px'}}>
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#33A3F4"
