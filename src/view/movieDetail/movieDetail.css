@@ -37,7 +37,6 @@
     width: 40%;
     margin-right: 30px;
     border-radius: 4px;
-    box-shadow: 0 0 2px rgba(0,0,0,.1);
     position: relative;
 }
 .detail_content .detail_top .top_left .collection{
@@ -49,6 +48,7 @@
 }
 .detail_content .detail_top .top_left img{
     width: 100%;
+    box-shadow: 0 0 2px rgba(0,0,0,.1);
 }
 .detail_content .detail_top .top_right h2{
     margin: 0 0 10px 0;
