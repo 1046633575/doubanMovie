@@ -34,10 +34,21 @@
     height: 20%;
 }
 .detail_content .detail_top .top_left{
-    width: 30%;
+    width: 40%;
     margin-right: 30px;
     border-radius: 4px;
     box-shadow: 0 0 2px rgba(0,0,0,.1);
+    position: relative;
+}
+.detail_content .detail_top .top_left .collection{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.detail_content .detail_top .top_left img{
+    width: 100%;
 }
 .detail_content .detail_top .top_right h2{
     margin: 0 0 10px 0;
