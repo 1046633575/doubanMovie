@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import TopBar from '../TopBar/TopBar'
-import {Route, Redirect} from 'react-router-dom'
+import {Route, Redirect, Switch} from 'react-router-dom'
 import MovieList from '../../view/movieList/movieList'
 import MovieDetail from '../../view/movieDetail/movieDetail'
 

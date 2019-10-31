@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import Score from '../Score/Score'
-
 import './MovieList.css'
 
 export default class MovieList extends Component {
@@ -49,25 +48,25 @@ export default class MovieList extends Component {
 
     render () {
         return (
-            <div className='movieList'>
-                {
-                    this.state.arr.map((item,index) =>
-                        <div className='list_item' onClick={() => {this.props.history.push('/movieDetail/' + item.id)}}>
-                            <div className="num">{index + 1}</div>
-                            <div className="left">
-                                <img src={this.props.num == 3 ? item.subject.images.small : item.images.large} alt=""/>
-                            </div>
-                            <div className="center">
-                                <p className='title'>{this.props.num == 3 ? item.subject.title : item.title}</p>
-                                <p className='detail'>{this.formatDetail(item)}</p>
-                            </div>
-                            <div className="right">
-                                <Score star={this.props.num == 3 ? item.subject.rating.average : item.rating.average}/>
-                            </div>
-                        </div>
-                    )
-                }
-            </div>
+             <div className='movieList'>
+                 {
+                     this.state.arr.map((item,index) =>
+                         <div className='list_item' onClick={() => {this.props.history.push('/movieDetail/' + item.id)}}>
+                             <div className="num">{index + 1}</div>
+                             <div className="left">
+                                 <img src={this.props.num == 3 ? item.subject.images.small : item.images.large} alt=""/>
+                             </div>
+                             <div className="center">
+                                 <p className='title'>{this.props.num == 3 ? item.subject.title : item.title}</p>
+                                 <p className='detail'>{this.formatDetail(item)}</p>
+                             </div>
+                             <div className="right">
+                                 <Score star={this.props.num == 3 ? item.subject.rating.average : item.rating.average}/>
+                             </div>
+                         </div>
+                     )
+                 }
+             </div>
         )
     }
 }

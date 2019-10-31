@@ -8,6 +8,10 @@ import './Card.css'
 
 export default class MyCard extends Component {
 
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     render () {
         return (
             <div>

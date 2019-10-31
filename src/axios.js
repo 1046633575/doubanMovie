@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const ADDRESS = 'https://douban-api-git-master.zce.now.sh'
+const ADDRESS = 'https://douban.uieee.com'
 // 正在上映
 export const getShowNow = () => {
     return axios.get(ADDRESS + '/v2/movie/in_theaters')

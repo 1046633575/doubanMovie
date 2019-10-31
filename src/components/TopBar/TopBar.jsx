@@ -13,12 +13,6 @@ export default class TopBar extends Component {
         selected: 'Main'
     }
 
-    componentDidMount() {
-        setTimeout(() =>{
-            this.setState({loading: false})
-        },3000)
-    }
-
     handleChange = (str) => {
         this.setState({selected : str})
     }

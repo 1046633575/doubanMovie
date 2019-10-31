@@ -20,9 +20,10 @@ export default class Main extends React.Component {
         loadingFlag: false
     }
 
-    componentWillMount(){
+    componentDidMount(){
         // 正在热映
         getShowNow().then(res => {
+            console.log("开始了")
             if(res.status === 200) {
                 this.setState({gridArr: res.data.subjects, loadingFlag: true})
             }
@@ -51,17 +52,17 @@ export default class Main extends React.Component {
         const swipers = ['http://www.bgwm.fun/picture/images/douban_img05.jpg','http://www.bgwm.fun/picture/images/douban_img06.jpg','http://www.bgwm.fun/picture/images/douban_img07.jpg','http://www.bgwm.fun/picture/images/douban_img01.jpg']
         const {loadingFlag} = this.state
         return (
-            <div className='main'>
-                {
-                    loadingFlag ? '' : <div className="loading_container"><Icon type="loading" size='lg'/><p>加载中...<br/>接口慢，请耐心等待</p></div>
-                }
-                <Swiper swipers={swipers}></Swiper>
-                {/*传递id为了在查看详情时区分开来，*/}
-                <MyCard title='正在热映' id={1} history={this.props.history} gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>
-                <MyCard title='即将上映' id={2} history={this.props.history} list={this.state.list}/>
-                <MyCard title='口碑榜' id={3} history={this.props.history} gridArr={this.state.mouthList} gridFlag={true} imgFlag={false}/>
-                <MyCard title='新片榜' id={4} history={this.props.history} list={this.state.newsList}/>
-            </div>
+               <div className='main'>
+                   {
+                       loadingFlag ? '' : <div className="loading_container"><Icon type="loading" size='lg'/><p>加载中...<br/>接口慢，请耐心等待</p></div>
+                   }
+                   <Swiper swipers={swipers}></Swiper>
+                   {/*传递id为了在查看详情时区分开来，*/}
+                   <MyCard title='正在热映' id={1} history={this.props.history} gridArr={this.state.gridArr} gridFlag={true} imgFlag={true}/>
+                   <MyCard title='即将上映' id={2} history={this.props.history} list={this.state.list}/>
+                   <MyCard title='口碑榜' id={3} history={this.props.history} gridArr={this.state.mouthList} gridFlag={true} imgFlag={false}/>
+                   <MyCard title='新片榜' id={4} history={this.props.history} list={this.state.newsList}/>
+               </div>
         )
     }
 }
