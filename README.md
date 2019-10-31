@@ -11,7 +11,7 @@
 + 电影详情
 
 ### 扫码访问
-![p1](http://www.bgwm.fun/picture/images/react_movie1.png)
+![p1](https://github.com/1046633575/doubanMovie/blob/master/src/assets/img/link.png)
 
 ### 运行截图
 ![p1](http://www.bgwm.fun/picture/images/react_movie1.png)
